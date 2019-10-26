@@ -1,21 +1,9 @@
-# geometric multigrid solver for a nonlinear obstacle problem
-# arising from the steady state of a parabolic ice sheet problem
-# uses Firedrake fem library with a PETSc interface
-# docker run -ti -v $(pwd):/home/firedrake/shared/ firedrakeproject/firedrake
-# curl -O  https://raw.githubusercontent.com/firedrakeproject/firedrake/master/scripts/firedrake-install
-# source firedrake/bin/activate
-
 from firedrake import *
-from firedrake_gmg import *
-import ufl
-import numpy as np
-from scipy.sparse import csr_matrix
-import scipy
-import matplotlib.pyplot as plt
+from firedrakegmg import *
 from time import time
 
 coarse_mx, coarse_my = 2, 2
-numlevels            = 11
+numlevels            = 8
 presmooth            = 'sor'
 postsmooth           = 'sor'
 preiters             = 1
