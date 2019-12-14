@@ -706,10 +706,12 @@ class nlobstacle_gmg_solver:
         projected_gauss_seidel(ai, aj, av, bi, bj, bv, u.dat.data, b.vector().array(), c.vector().array(), np.arange(len(u.vector().array()), dtype='int32')[~self.level.bindices])
         #projected_gauss_seidel(ai, aj, av, bi, bj, bv, u.dat.data, b.vector().array(), c.vector().array(), np.flip(np.arange(len(u.vector().array()), dtype='int32')[~self.level.bindices]))
         
-  def fmgsolve(self, g, cycle='V', rtol=1e-12, atol=1e-15, maxiters=50, innerits=1, j=2):
+  def fmgsolve(self, g, cycle='V', rtol=1e-12, atol=1e-15, maxiters=50, innerits=1, j=2, u0=None):
     #f, g, and bc are the rhs, obstacle, and boundary condition: expressions to be interpolated
     mult = 1.0
     u, v = Function(self.levels[-j].fspace), TestFunction(self.levels[-j].fspace)
+    if u0 is not None:
+      u = u0
     u.vector()[self.levels[-j].bindices] = self.levels[-j].bvals
     psi = Function(self.levels[-j].fspace)
     psi.interpolate(g)
@@ -970,7 +972,7 @@ class nlobstacle_pfas_solver:
             ra.assign(fc - assemble(action(self.levels[-1].a, uc)))
             print('coarse solve converged ' + str(z) + ' its. resid norm ', np.linalg.norm(np.minimum(uc.vector()[~self.levels[-1].bindices] - gc.vector()[~self.levels[-1].bindices], ra.vector()[~self.levels[-1].bindices])))
           else:
-            ra.assign(assemble(action(self.levels[-1].a, uc)))
+            ra.assign(assemble(fc - action(self.levels[-1].a, uc)))
             print('coarse solve diverged. resid norm ', np.linalg.norm(np.minimum(uc.vector()[~self.levels[-1].bindices] - gc.vector()[~self.levels[-1].bindices], ra.vector()[~self.levels[-1].bindices])))
       
       
@@ -1002,19 +1004,23 @@ class nlobstacle_pfas_solver:
       if lvl > 0:
         self.level = self.levels[lvl - 1]
 
-  def fmgsolve(self, f, g, cycle='V', rtol=1e-12, atol=1e-15, maxiters=50, inner_its=1, j=2):
+  def fmgsolve(self, f, g, cycle='V', rtol=1e-12, atol=1e-15, maxiters=50, inner_its=1, j=2, u0=None):
     #f, g, and bc are the rhs, obstacle, and boundary condition: expressions to be interpolated
     mult = 1.0
     u, v = Function(self.levels[-j].fspace), TestFunction(self.levels[-j].fspace)
+    if u0 is not None:
+      u = u0
     bc = Function(self.levels[-j].fspace)
     bc.vector()[self.levels[-j].bindices] = self.levels[-j].bvals
     u = assemble(u*v*dx, bcs=DirichletBC(self.levels[-j].fspace, bc, 'on_boundary'))
     psi = Function(self.levels[-j].fspace)
     psi.interpolate(g)
+    ff = Function(self.levels[-j].fspace)
+    ff.interpolate(f)
     for i in range(len(self.levels) - j, -1, -1):
       print('fmg solving level number', len(self.levels) - i)
       gmgsolver = nlobstacle_pfas_solver(self.levels[i:len(self.levels)], self.preiters, self.postiters, resid_norm=norm)
-      gmgsolver.solve(u, assemble(f*v*dx), psi, cycle=cycle, rtol=rtol*mult, atol=atol*mult, maxiters=maxiters, inner_its=inner_its)
+      gmgsolver.solve(u, assemble(ff*v*dx), psi, cycle=cycle, rtol=rtol*mult, atol=atol*mult, maxiters=maxiters, inner_its=inner_its)
       if i == len(self.levels) - j:
         mult *= gmgsolver.residuals[0]
       if i > 0:
@@ -1025,7 +1031,8 @@ class nlobstacle_pfas_solver:
         v = TestFunction(self.levels[i - len(self.levels) - 1].fspace)
         psi = Function(self.levels[i - len(self.levels) - 1].fspace)
         psi.interpolate(g)
-  
+        ff = Function(self.levels[i - len(self.levels) - 1].fspace)
+        ff.interpolate(f)
     
     return u
       

@@ -6,18 +6,19 @@ import matplotlib.pyplot as plt
 from numpy import arctan2
 
 #coarse_mx, coarse_my = 2, 2
-numlevels            = 4
+numlevels            = 6
 preiters             = 2
 postiters            = 2
 maxiters             = 20
-cycle                = 'W'
-rtol                 = 1e-8
+cycle                = 'FV'
+rtol                 = 1e-10
 atol                 = 1e-15
 k   = Constant(0.0)
 coarsemx = 2
 coarsemy = 2
 quad = True
-mg_type = 'gmg'
+mg_type = 'pfas'
+fmg = True
 
 levels = []
 
@@ -35,7 +36,7 @@ def build_levels(numlevels):
     u, v = Function(V), TestFunction(V)
     bndry = np.rint(assemble(Constant(0.0)*v*dx, bcs=DirichletBC(V, 1.0, 'on_boundary')).vector().array()).astype('bool')
     bvals = np.zeros(len(uf.vector()[:]))[bndry]
-    a    = inner(grad(u), grad(v))/sqrt(1. + inner(grad(u),grad(u)))*dx
+    a    = inner(grad(u), grad(v))*(1./sqrt(1. + inner(grad(u), grad(u))))*dx
     A    = None
     H    = TrialFunction(V)
     b    = H*v*dx# + k*inner(grad(u), grad(v))*dx
@@ -84,10 +85,22 @@ u = assemble(Constant(0.0)*v*dx, bcs=levels[0].bcs)
 tstart = time()
 if mg_type == 'gmg':
   gmgsolver = nlobstacle_gmg_solver(levels, preiters, postiters)
-  gmgsolver.solve(u, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters)
+  if fmg:
+    f = Constant(0.0)
+    gmgsolver.fmgsolve(psi, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters, innerits=1, j=2)
+  else:
+    u = gmgsolver.solve(u, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters, innerits=innits)
+    gmgsolver.solve(u, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters)
 else:
   gmgsolver = nlobstacle_pfas_solver(levels, preiters, postiters)
-  gmgsolver.solve(u, f, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters)
+  if fmg:
+    f = Constant(0.0)
+    u = gmgsolver.fmgsolve(f, psi, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters, j=2)
+  else:
+    f = assemble(f, bcs=levels[0].bcs)
+    gmgsolver.solve(u, f, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters)
+
+
 print('time for gmg solve:', time() - tstart)
 
 
