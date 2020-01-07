@@ -1,0 +1,2 @@
+iter residual
+   8          nan
