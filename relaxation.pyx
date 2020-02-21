@@ -1,6 +1,8 @@
 # python setup.py build_ext -i
 
 cimport numpy as np
+from libc.math cimport sin
+
 def gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.ndarray[double, ndim=1] Ax, np.ndarray[double, ndim=1] x, np.ndarray[double, ndim=1] b, np.ndarray[int, ndim=1] indices):
     cdef unsigned int i, j, jj, start, end
     cdef double rsum, diag
@@ -22,8 +24,10 @@ def gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.ndar
 
 def projected_gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.ndarray[double, ndim=1] Ax, np.ndarray[int, ndim=1] Bp, np.ndarray[int, ndim=1] Bj, np.ndarray[double, ndim=1] Bx, np.ndarray[double, ndim=1] x, np.ndarray[double, ndim=1] b, np.ndarray[double, ndim=1] c, np.ndarray[int, ndim=1] indices):
     cdef unsigned int i, j, jj, start, end
-    cdef double rsum, diag, val
+    cdef double rsum, diag, val, eps, omega
 
+    eps = 1e-8#ensures nonzeros on the diagonal of the jacobian approximation
+    omega =  1.0 #relaxation parameter
     for i in indices:
 
        start = Ap[i]
@@ -35,9 +39,10 @@ def projected_gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] A
               diag  = Ax[jj]
             else:
               rsum += Ax[jj]*x[j]
-       if abs(diag) > 1e-16:
-          x[i] = (b[i] - rsum)/diag
-          #x[i] = x[i] + (b[i] - rsum - diag*x[i])
+       if abs(diag + eps) > 1e-16:
+          x[i] = (1. - omega)*x[i] + omega*(b[i] + eps*x[i] - rsum)/(diag + eps)
+          #x[i] = (b[i] + eps*x[i] - (1. - eps)*rsum)/((1. - eps)*diag + eps)
+          #x[i] = x[i] + (b[i]  - rsum - diag*x[i])
 
        start = Bp[i]
        end   = Bp[i + 1]
@@ -64,7 +69,7 @@ def symmetric_pgs(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.nda
 def rs_gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.ndarray[double, ndim=1] Ax, np.ndarray[int, ndim=1] Bp, np.ndarray[int, ndim=1] Bj, np.ndarray[double, ndim=1] Bx, np.ndarray[double, ndim=1] x, np.ndarray[double, ndim=1] b, np.ndarray[double, ndim=1] c, np.ndarray[int, ndim=1] indices):
     cdef unsigned int i, j, jj, start, end
     cdef double rsum, diag, val
-    
+
     for i in indices:
 
        start = Ap[i]
@@ -76,11 +81,8 @@ def rs_gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.n
               diag  = Ax[jj]
             else:
               rsum += Ax[jj]*x[j]
-            if abs(diag) > 1e-16:
-              x[i] = (b[i] - rsum)/diag #do unconstrained gauss-seidel on the reduced space
-              
-    #for i in indices: #projection step
-    #  x[i] = max(x[i], c[i])
+       if abs(diag) > 1e-15:
+           x[i] = (b[i] - rsum)/diag #do unconstrained gauss-seidel on the reduced space
 
 def rsc_gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.ndarray[double, ndim=1] Ax, np.ndarray[int, ndim=1] Bp, np.ndarray[int, ndim=1] Bj, np.ndarray[double, ndim=1] Bx, np.ndarray[double, ndim=1] x, np.ndarray[double, ndim=1] b, np.ndarray[double, ndim=1] c, np.ndarray[int, ndim=1] indices):
     cdef unsigned int i, j, jj, start, end
@@ -101,4 +103,22 @@ def rsc_gauss_seidel(np.ndarray[int, ndim=1] Ap, np.ndarray[int, ndim=1] Aj, np.
               x[i] = (b[i] - rsum + diag*x[i])/diag
 
        x[i] = max(x[i], c[i])
-  
+
+'''
+def nl_pgs(fd.ufl_expr F, fd.Function u, np.ndarray[double, ndim=1] c, np.ndarray[int, ndim=1] indices):
+    cdef unsigned int i
+    cdef fd.ufl_expr F, dF
+    cdef fd.Function w
+    cdef float Fi, dFi
+
+    for i in indices:
+       w = fd.Function(u.function_space())
+       w.vector()[i] = 1.0
+       #F  = F.replace({H : u, v : w})
+       dF = fd.derivative(F, u, w)
+       Fi = fd.assemble(Fi)
+       dFi = fd.assemble(dFi)
+       if dFi > 0.0:
+        u.vector()[i] = u.vector()[i] - Fi/dFi
+        u.vector()[i] = max(u.vector()[i], c[i])
+'''

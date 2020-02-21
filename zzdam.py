@@ -1,3 +1,9 @@
+#python test.py -d zzdam.py -o ./testresults/lcp/dam/ --mgtype pfas --maxiters 50 --atol 1e-14 --rtol 1e-12 --eps 0.0 --numlevels 10 --preiters 1 --postiters 1 --fmgc 2 --cycle V
+
+#python test.py -d zzdam.py -o ./testresults/lcp/dam/ --mgtype gmg --maxiters 50 --atol 1e-14 --rtol 1e-12 --eps 0.0 --numlevels 10 --preiters 1 --postiters 1 --fmgc 2 --cycle V
+
+
+
 from firedrake import *
 from firedrakegmg import *
 from gridtransfers import mrestrict
@@ -24,5 +30,9 @@ def g(x, y):
 
 def init(x, y):
   return Constant(0.0)
+  
+def form(u, v):
+  return inner(grad(u), grad(v))*dx
 
+transform = None
 exact = None

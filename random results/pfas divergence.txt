@@ -1,0 +1,1766 @@
+>> python test.py -d zzpbueler.py -o ./testresults/ncp/pbueler/ --mgtype pfas --fmg true --fmgc 2 --numlevels 8 --rtol 1e-12 --eps 0.0 --maxiters 10000 --preiters 4 --postiters 4 --cycle FV --eps 1e-4
+
+building multigrid hierarchy...
+time to build hierarchy: 2.0441858768463135
+solving obstacle problem with custom diffusivity
+
+fmg solving level number 1 using one grid solver
+Multigrid solver, number of unknowns 9
+
+residual iteration 0: 5097.625414541908
+
+residual iteration 1: 2265.6112953224356
+
+residual iteration 2: 1006.9383533398267
+
+residual iteration 3: 447.5281563757768
+
+residual iteration 4: 198.90139953547921
+
+residual iteration 5: 88.40060546272204
+
+residual iteration 6: 39.28907450774771
+
+residual iteration 7: 17.46138902107253
+
+residual iteration 8: 7.758482969033921
+
+residual iteration 9: 3.4373962335635455
+
+residual iteration 10: 1.4719794233853876
+
+residual iteration 11: 0.29664095003507296
+gmg coverged
+
+convergence summary
+-------------------
+residual 0: 5097.625414541908       convergence factor 0: ---------------
+residual 1: 2265.6112953224356      convergence factor 1: 0.44444444443865283
+residual 2: 1006.9383533398267      convergence factor 2: 0.4444444443840584
+residual 3: 447.5281563757768       convergence factor 3: 0.44444444378487463
+residual 4: 198.90139953547921      convergence factor 4: 0.4444444370746302
+residual 5: 88.40060546272204       convergence factor 5: 0.44444436122207126
+residual 6: 39.28907450774771       convergence factor 6: 0.44444350015584067
+residual 7: 17.46138902107253       convergence factor 7: 0.4444337068217065
+residual 8: 7.758482969033921       convergence factor 8: 0.4443222105452738
+residual 9: 3.4373962335635455      convergence factor 9: 0.4430500456446277
+residual 10: 1.4719794233853876     convergence factor 10: 0.4282251225542852
+residual 11: 0.29664095003507296    convergence factor 11: 0.20152520159067988
+residual 12: 0.0                    convergence factor 12: 0.0
+aggregate convergence factor: 0.0
+residual reduction: 0.0
+
+L2 error:  0.48242889616297846
+Linf error:  1.0
+Max val u:  0.0
+
+fmg solving level number 2 using multigrid solver
+Multigrid solver, number of unknowns 25
+
+residual iteration 0: 1.7308386462163612
+presmoothing sweep 0 on level  0
+L2 error:  0.48242889616297846
+Linf error:  1.0
+Max val u:  0.0
+L2 residual norm: 1.7308386462163612
+presmoothing sweep 1 on level 0
+L2 error:  32452.786477076184
+Linf error:  97358.67384967032
+Max val u:  97359.67384967032
+L2 residual norm: 2798214241899068.5
+presmoothing sweep 2 on level 0
+L2 error:  46407.74101287611
+Linf error:  80645.01573089449
+Max val u:  80646.01573089449
+L2 residual norm: 616708424902001.2
+presmoothing sweep 3 on level 0
+L2 error:  41328.066074660645
+Linf error:  61296.96943086448
+Max val u:  61297.96943086448
+L2 residual norm: 222560138598149.5
+presmoothing sweep 4 on level 0
+L2 error:  32463.327896885436
+Linf error:  46011.100079630734
+Max val u:  46012.100079630734
+L2 residual norm: 89257063919812.8
+ coarse grid sweep 0
+ L2 residual norm: 133169381888933.3
+ coarse grid sweep 0
+ L2 residual norm: 33224682180251.72
+ coarse grid sweep 0
+ L2 residual norm: 5607856829275.193
+ coarse grid sweep 0
+ L2 residual norm: 302039687201.6407
+ coarse grid sweep 0
+ L2 residual norm: 1055901324.9270835
+ coarse grid sweep 0
+ L2 residual norm: 13056.156250000002
+ coarse grid sweep 0
+ L2 residual norm: 0.015625
+ coarse grid sweep 0
+ L2 residual norm: 0.015625
+ coarse solve converged 7 its. resid norm  0.0234375
+postsmoothing sweep 0 on level 0
+L2 error:  810.2074205134534
+Linf error:  2045.3391432381118
+Max val u:  2045.3710905199914
+L2 residual norm: 27603741486.875404
+postsmoothing sweep 1 on level 0
+L2 error:  633.6642410909602
+Linf error:  1433.7822519733777
+Max val u:  1433.8141992552573
+L2 residual norm: 8360583591.927153
+postsmoothing sweep 2 on level 0
+L2 error:  475.22867055174777
+Linf error:  977.0927119951073
+Max val u:  977.1246592769869
+L2 residual norm: 2575668160.9673157
+
+residual iteration 1: 2575668160.9673157
+presmoothing sweep 0 on level  0
+L2 error:  475.22867055174777
+Linf error:  977.0927119951073
+Max val u:  977.1246592769869
+L2 residual norm: 2575668160.9673157
+presmoothing sweep 1 on level 0
+L2 error:  333.0271237477491
+Linf error:  660.2712523472266
+Max val u:  660.3031996291062
+L2 residual norm: 791014284.3437524
+presmoothing sweep 2 on level 0
+L2 error:  229.89861507272155
+Linf error:  446.5790524789922
+Max val u:  446.61099976087183
+L2 residual norm: 243694230.67396283
+presmoothing sweep 3 on level 0
+L2 error:  157.78873530546426
+Linf error:  302.4351025850614
+Max val u:  302.467049866941
+L2 residual norm: 75314789.67389764
+presmoothing sweep 4 on level 0
+L2 error:  108.00348264765564
+Linf error:  205.06445578181626
+Max val u:  205.09640306369587
+L2 residual norm: 23347841.658442736
+ coarse grid sweep 0
+ L2 residual norm: 5124485.047520662
+ coarse grid sweep 0
+ L2 residual norm: 4436620421.520351
+ coarse grid sweep 0
+ L2 residual norm: 1313218011.4524958
+ coarse grid sweep 0
+ L2 residual norm: 387768602.8128776
+ coarse grid sweep 0
+ L2 residual norm: 113571966.85111272
+ coarse grid sweep 0
+ L2 residual norm: 32363608.957974743
+ coarse grid sweep 0
+ L2 residual norm: 8412935.447955193
+ coarse grid sweep 0
+ L2 residual norm: 1618601.1436334294
+ coarse grid sweep 0
+ L2 residual norm: 125430.31224167722
+ coarse grid sweep 0
+ L2 residual norm: 989.7794412852577
+ coarse grid sweep 0
+ L2 residual norm: 0.06328448156515758
+ coarse grid sweep 0
+ L2 residual norm: 1.2417634328206382e-09
+ coarse grid sweep 0
+ L2 residual norm: 1.2417634328206382e-09
+ coarse solve converged 12 its. resid norm  1.862645149230957e-09
+postsmoothing sweep 0 on level 0
+L2 error:  394.0766284239516
+Linf error:  500.3090030424796
+Max val u:  501.3090030424796
+L2 residual norm: 147391558.70004255
+postsmoothing sweep 1 on level 0
+L2 error:  298.28957474794356
+Linf error:  387.4480365495317
+Max val u:  388.4480365495317
+L2 residual norm: 54842286.93218512
+postsmoothing sweep 2 on level 0
+L2 error:  225.44829308621414
+Linf error:  298.322391599029
+Max val u:  299.322391599029
+L2 residual norm: 22688758.19027712
+maxiters exceeded
+
+convergence summary
+-------------------
+residual 0: 1.7308386462163612    convergence factor 0: ---------------
+residual 1: 2575668160.9673157    convergence factor 1: 1488104143.3860772
+residual 2: 22688758.19027712     convergence factor 2: 0.00880888250051441
+aggregate convergence factor: 3620.5710250755474
+residual reduction: 13108534.547616601
+
+L2 error:  225.42705416732545
+Linf error:  298.322391599029
+Max val u:  299.322391599029
+
+fmg solving level number 3 using multigrid solver
+Multigrid solver, number of unknowns 81
+
+residual iteration 0: 8295373.204026772
+presmoothing sweep 0 on level  0
+L2 error:  225.42705416732545
+Linf error:  298.322391599029
+Max val u:  299.322391599029
+L2 residual norm: 8295373.204026772
+presmoothing sweep 1 on level 0
+L2 error:  207.33960523558616
+Linf error:  262.83711023800396
+Max val u:  263.83711023800396
+L2 residual norm: 5104987.579347517
+presmoothing sweep 2 on level 0
+L2 error:  186.10622645203694
+Linf error:  230.72481169916614
+Max val u:  231.72481169916614
+L2 residual norm: 3344309.807299007
+presmoothing sweep 3 on level 0
+L2 error:  166.48255601819932
+Linf error:  203.40735270145294
+Max val u:  204.40735270145294
+L2 residual norm: 2359404.0819426468
+presmoothing sweep 4 on level 0
+L2 error:  148.34737142845626
+Linf error:  179.69842884246285
+Max val u:  180.69842884246285
+L2 residual norm: 1653949.534860078
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 1673308.9609793515
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 605757.0114136791
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 185060.65075624688
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 45656.576135987714
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 9711.372555965485
+  coarse grid sweep 0
+  L2 residual norm: 9380.150824531913
+  coarse grid sweep 0
+  L2 residual norm: 4.725132010877133
+  coarse grid sweep 0
+  L2 residual norm: 1.1995434761047365e-06
+  coarse grid sweep 0
+  L2 residual norm: 0.0
+  coarse solve converged 3 its. resid norm  0.0
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 8321.136549981566
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 3102.078614488825
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 836.8594455510782
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 836.8594455510782
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 173.40962693580252
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 36.29704507467724
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 7.600097012586108
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 1.5912840032144342
+  coarse grid sweep 0
+  L2 residual norm: 1.5692744950453443
+  coarse grid sweep 0
+  L2 residual norm: 1.3038516044616702e-07
+  coarse grid sweep 0
+  L2 residual norm: 2.4835268656412763e-09
+  coarse solve converged 2 its. resid norm  3.725290298461914e-09
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 1.4050235884028128
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.5219159222978683
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.14083210932907295
+postsmoothing sweep 0 on level 0
+L2 error:  75.10284152366171
+Linf error:  77.23216468459592
+Max val u:  78.23216468459592
+L2 residual norm: 305067.274957136
+postsmoothing sweep 1 on level 0
+L2 error:  64.9648619347745
+Linf error:  70.89940393163312
+Max val u:  71.89940393163312
+L2 residual norm: 165984.78593952267
+postsmoothing sweep 2 on level 0
+L2 error:  56.583677250810126
+Linf error:  63.57423269671335
+Max val u:  64.57423269671335
+L2 residual norm: 104075.0350464829
+
+residual iteration 1: 104075.0350464829
+presmoothing sweep 0 on level  0
+L2 error:  56.583677250810126
+Linf error:  63.57423269671335
+Max val u:  64.57423269671335
+L2 residual norm: 104075.0350464829
+presmoothing sweep 1 on level 0
+L2 error:  49.431082770210686
+Linf error:  56.48702655704522
+Max val u:  57.48702655704522
+L2 residual norm: 64815.87359338154
+presmoothing sweep 2 on level 0
+L2 error:  43.40259305449694
+Linf error:  50.01035177438129
+Max val u:  51.01035177438129
+L2 residual norm: 42408.76715238903
+presmoothing sweep 3 on level 0
+L2 error:  38.2335769177238
+Linf error:  44.20362354058623
+Max val u:  45.20362354058623
+L2 residual norm: 28387.791713755923
+presmoothing sweep 4 on level 0
+L2 error:  33.74751015285351
+Linf error:  39.037278225109574
+Max val u:  40.037278225109574
+L2 residual norm: 19375.93188400345
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 16981.394864407655
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 5485.891325033482
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 1615.9857675115452
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 362.19866908150635
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 63.76046088363097
+  coarse grid sweep 0
+  L2 residual norm: 44.228407099357966
+  coarse grid sweep 0
+  L2 residual norm: 0.008814689645078035
+  coarse grid sweep 0
+  L2 residual norm: 3.2984341184298204e-10
+  coarse grid sweep 0
+  L2 residual norm: 0.0
+  coarse solve converged 3 its. resid norm  0.0
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 40.969301346391475
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 13.184610477562597
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 3.6385724709018676
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 3.6385724709018676
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.6166691612050854
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.1064599056700914
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.018391783888795366
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.0031772691599379456
+  coarse grid sweep 0
+  L2 residual norm: 0.0023011704130719113
+  coarse grid sweep 0
+  L2 residual norm: 9.701276818911236e-12
+  coarse grid sweep 0
+  L2 residual norm: 9.701276818911236e-12
+  coarse solve converged 2 its. resid norm  1.4551915228366852e-11
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.002096245065442899
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.0006940929768812662
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.00019077293990336396
+postsmoothing sweep 0 on level 0
+L2 error:  19.199675677706214
+Linf error:  20.65611184049247
+Max val u:  21.65611184049247
+L2 residual norm: 4645.45025641988
+postsmoothing sweep 1 on level 0
+L2 error:  16.81791993061535
+Linf error:  18.224842347799168
+Max val u:  19.224842347799168
+L2 residual norm: 2618.223163470715
+postsmoothing sweep 2 on level 0
+L2 error:  14.716098063761914
+Linf error:  16.004339122548934
+Max val u:  17.004339122548934
+L2 residual norm: 1788.9074180110547
+maxiters exceeded
+
+convergence summary
+-------------------
+residual 0: 8295373.204026772     convergence factor 0: ---------------
+residual 1: 104075.0350464829     convergence factor 1: 0.0125461546438878
+residual 2: 1788.9074180110547    convergence factor 2: 0.017188631425510234
+aggregate convergence factor: 0.014685068198045284
+residual reduction: 0.00021565122798124095
+
+L2 error:  14.709144810466615
+Linf error:  16.004339122548934
+Max val u:  17.004339122548934
+
+fmg solving level number 4 using multigrid solver
+Multigrid solver, number of unknowns 289
+
+residual iteration 0: 564.6322572818773
+presmoothing sweep 0 on level  0
+L2 error:  14.709144810466615
+Linf error:  16.004339122548934
+Max val u:  17.004339122548934
+L2 residual norm: 564.6322572818773
+presmoothing sweep 1 on level 0
+L2 error:  14.156106693694412
+Linf error:  15.247534263022207
+Max val u:  16.247534263022207
+L2 residual norm: 426.9134132012753
+presmoothing sweep 2 on level 0
+L2 error:  13.589571268135826
+Linf error:  14.445936573358376
+Max val u:  15.445936573358376
+L2 residual norm: 354.83218175610955
+presmoothing sweep 3 on level 0
+L2 error:  13.04037397230801
+Linf error:  13.663612952902577
+Max val u:  14.663612952902577
+L2 residual norm: 311.2521172445824
+presmoothing sweep 4 on level 0
+L2 error:  12.50465292198837
+Linf error:  12.89313081175583
+Max val u:  13.89313081175583
+L2 residual norm: 273.2729436987637
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 265.09080273461336
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 175.99582579925698
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 111.49379751578348
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 68.71389440683691
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 42.63437594828137
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 34.18691001648704
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 7.00160699904578
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 1.7034828124810883
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.2076940810705265
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.025093622761284975
+   coarse grid sweep 0
+   L2 residual norm: 0.012724660674090652
+   coarse grid sweep 0
+   L2 residual norm: 1.557903791156908e-08
+   coarse grid sweep 0
+   L2 residual norm: 2.425319204727809e-12
+   coarse solve converged 2 its. resid norm  3.637978807091713e-12
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.015139391824038262
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.003037241318304311
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 0.0008416912691674723
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.0008416912691674723
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 9.971123708547859e-05
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 1.217053796107249e-05
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 1.4859887388971604e-06
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 1.8143752975116488e-07
+   coarse grid sweep 0
+   L2 residual norm: 9.212999430019408e-08
+   coarse grid sweep 0
+   L2 residual norm: 6.063298011819522e-13
+   coarse solve converged 1 its. resid norm  9.094947017729282e-13
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 1.094947336195063e-07
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 2.19996724159425e-08
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 6.0952006294175514e-09
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 14.235242826569547
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 3.86094613510019
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 1.7357652512870165
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 1.7357652512870165
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 1.0070673232358067
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.5668524238765539
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.34821466008841084
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.216114054038619
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.17552468655177325
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.034716854148756755
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.008520955277479756
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.0009825936716671689
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.00011882909017831456
+   coarse grid sweep 0
+   L2 residual norm: 5.9822888943017474e-05
+   coarse grid sweep 0
+   L2 residual norm: 1.8189894035458565e-12
+   coarse grid sweep 0
+   L2 residual norm: 1.8189894035458565e-12
+   coarse solve converged 2 its. resid norm  2.7284841053187847e-12
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 7.170592183039971e-05
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 1.418391183544159e-05
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 3.931537661432315e-06
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.08062974119061501
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.020751981900637685
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.010803619017465299
+postsmoothing sweep 0 on level 0
+L2 error:  7.541516632494231
+Linf error:  7.74262849262147
+Max val u:  8.692001183487816
+L2 residual norm: 69.58148017244957
+postsmoothing sweep 1 on level 0
+L2 error:  7.235763369818334
+Linf error:  7.317357495857469
+Max val u:  8.196677780888072
+L2 residual norm: 56.07195367441179
+postsmoothing sweep 2 on level 0
+L2 error:  6.931430095943675
+Linf error:  6.96461683446175
+Max val u:  7.836664901859093
+L2 residual norm: 50.152867466599915
+
+residual iteration 1: 50.152867466599915
+presmoothing sweep 0 on level  0
+L2 error:  6.931430095943675
+Linf error:  6.96461683446175
+Max val u:  7.836664901859093
+L2 residual norm: 50.152867466599915
+presmoothing sweep 1 on level 0
+L2 error:  6.630643821915315
+Linf error:  6.639752972379203
+Max val u:  7.511801039776546
+L2 residual norm: 44.82398737552795
+presmoothing sweep 2 on level 0
+L2 error:  6.33907694512725
+Linf error:  6.3283349015704875
+Max val u:  7.200382968967831
+L2 residual norm: 40.217883878419094
+presmoothing sweep 3 on level 0
+L2 error:  6.057600237907203
+Linf error:  6.03201727764746
+Max val u:  6.9040653450448035
+L2 residual norm: 35.89258653502307
+presmoothing sweep 4 on level 0
+L2 error:  5.787130656881141
+Linf error:  5.748914475070786
+Max val u:  6.6209625424681295
+L2 residual norm: 31.932777582648804
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 30.171798877590806
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 19.687154071254138
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 11.988161868133522
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 7.158993394316336
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 4.293133942662698
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 3.160147326182964
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.4642352928498406
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.12092771048927672
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.01102852401513721
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.0009913573486240682
+   coarse grid sweep 0
+   L2 residual norm: 0.00037066677513545687
+   coarse grid sweep 0
+   L2 residual norm: 1.3642420526593926e-10
+   coarse grid sweep 0
+   L2 residual norm: 2.6526928801710414e-13
+   coarse solve converged 2 its. resid norm  3.979039320256561e-13
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.0006216285860280015
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 7.08999668914915e-05
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 2.0480776707135834e-05
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 2.0480776707135834e-05
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 1.7893217649940498e-06
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 1.6343377927741814e-07
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 1.4890341392594408e-08
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 1.3563359734034412e-09
+   coarse grid sweep 0
+   L2 residual norm: 5.075738348144417e-10
+   coarse grid sweep 0
+   L2 residual norm: 1.1368683772161603e-13
+   coarse solve converged 1 its. resid norm  1.7053025658242404e-13
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 8.503657623219026e-10
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 9.714686054118986e-11
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 2.804885016678383e-11
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 1.9627957416885031
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.35966429109762577
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.10296267582513319
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 0.10296267582513319
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.04797911486924297
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.025192317756955362
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.013443569424657376
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.007306109008607619
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.005560391049054048
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.0007085059319915746
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.00020451669192623722
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 1.6830167442764233e-05
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 1.5267505940534387e-06
+   coarse grid sweep 0
+   L2 residual norm: 5.703949076026523e-07
+   coarse grid sweep 0
+   L2 residual norm: 2.6526928801710414e-13
+   coarse solve converged 1 its. resid norm  3.979039320256561e-13
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 9.566367234827956e-07
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 1.0872427502081448e-07
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 3.1350785371595394e-08
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.0057116674431216125
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.001137894418160694
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.00033999077938665534
+postsmoothing sweep 0 on level 0
+L2 error:  3.44236728614463
+Linf error:  3.475026388010337
+Max val u:  4.336976478155966
+L2 residual norm: 8.800774070318042
+postsmoothing sweep 1 on level 0
+L2 error:  3.2931414189742383
+Linf error:  3.2560489108068107
+Max val u:  4.103976306073526
+L2 residual norm: 6.934956253197444
+postsmoothing sweep 2 on level 0
+L2 error:  3.146756050885605
+Linf error:  3.0712261080090815
+Max val u:  3.9209944438054056
+L2 residual norm: 6.1439211359818
+maxiters exceeded
+
+convergence summary
+-------------------
+residual 0: 564.6322572818773     convergence factor 0: ---------------
+residual 1: 50.152867466599915    convergence factor 1: 0.08882395013709332
+residual 2: 6.1439211359818       convergence factor 2: 0.12250388554699171
+aggregate convergence factor: 0.1043133693321531
+residual reduction: 0.010881279021426177
+
+L2 error:  3.145183011844036
+Linf error:  3.071226108009082
+Max val u:  3.920994443805406
+
+fmg solving level number 5 using multigrid solver
+Multigrid solver, number of unknowns 1089
+
+residual iteration 0: 1.7831547291079959
+presmoothing sweep 0 on level  0
+L2 error:  3.145183011844036
+Linf error:  3.071226108009082
+Max val u:  3.920994443805406
+L2 residual norm: 1.7831547291079959
+presmoothing sweep 1 on level 0
+L2 error:  3.107673803312462
+Linf error:  2.9838148722580766
+Max val u:  3.856037510454762
+L2 residual norm: 1.5312485282456647
+presmoothing sweep 2 on level 0
+L2 error:  3.0695800684539365
+Linf error:  2.920671551372182
+Max val u:  3.8125239780549287
+L2 residual norm: 1.4491448270840495
+presmoothing sweep 3 on level 0
+L2 error:  3.0317849468553955
+Linf error:  2.868408223760058
+Max val u:  3.7703825208350894
+L2 residual norm: 1.3975156648708997
+presmoothing sweep 4 on level 0
+L2 error:  2.9943680376253536
+Linf error:  2.819635279819159
+Max val u:  3.7293464771847162
+L2 residual norm: 1.3507970190537828
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 1.3581785683636238
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 1.215421287626834
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 1.0845985739795934
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.9665308358125911
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.860384102950141
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.8164021531087723
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.5467408718432659
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.3442254032195759
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.21340660845294152
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.1337977992029074
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.10488015372377944
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.019340086163057078
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 0.005069318993118144
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 0.000592122118960364
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 7.08333828777805e-05
+    coarse grid sweep 0
+    L2 residual norm: 2.9487430263467715e-05
+    coarse grid sweep 0
+    L2 residual norm: 4.121147867408582e-12
+    coarse grid sweep 0
+    L2 residual norm: 3.7895612573872014e-14
+    coarse solve converged 2 its. resid norm  5.684341886080802e-14
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 4.62085761932249e-05
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 6.036362231641788e-06
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 1.8093012171076554e-06
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 1.8093012171076554e-06
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 2.1308167556914766e-07
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 2.5528157756791747e-08
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 3.061922192850253e-09
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 3.672558612568195e-10
+    coarse grid sweep 0
+    L2 residual norm: 1.528993228324301e-10
+    coarse grid sweep 0
+    L2 residual norm: 9.473903143468004e-15
+    coarse solve converged 1 its. resid norm  1.4210854715202004e-14
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 2.3959746146515947e-10
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 3.130900239629267e-11
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 9.400164748680596e-12
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.05819597832540447
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.013293090175721582
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 0.004779885172804326
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.004779885172804326
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.002681425900424171
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.0015151252118066635
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.0009490902316913064
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.0005980582550886939
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.00048128705583530665
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 8.984469871700465e-05
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 2.4167797353140576e-05
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 2.783026636476805e-06
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 3.3329280611854523e-07
+    coarse grid sweep 0
+    L2 residual norm: 1.3860425459218584e-07
+    coarse grid sweep 0
+    L2 residual norm: 0.0
+    coarse solve converged 1 its. resid norm  0.0
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 2.175282415500583e-07
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 2.833623737096471e-08
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 8.496631700880223e-09
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.00029614935398286326
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 5.7869072295790656e-05
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 2.5444419957587398e-05
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.2543705712053079
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.07433416056787133
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.03165275502200581
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 0.03165275502200581
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.02085826962507533
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.01786363711301243
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.01580232653609728
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.014106296085322878
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.013348582030247021
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.009048475268685562
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.005719400508161149
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.0035516674549726647
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.0022339272077176544
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.0017549580325464393
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.0003376011295339337
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 8.842768061081625e-05
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 1.0892808911130021e-05
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 1.3770852487741703e-06
+    coarse grid sweep 0
+    L2 residual norm: 6.002861520452524e-07
+    coarse grid sweep 0
+    L2 residual norm: 1.8947806286936007e-14
+    coarse grid sweep 0
+    L2 residual norm: 1.8947806286936007e-14
+    coarse solve converged 2 its. resid norm  2.842170943040401e-14
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 8.99383292617818e-07
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 1.2654316340671e-07
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 3.779133096024598e-08
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.0009767465688244274
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.00024447853892201575
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 8.582406910508188e-05
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.005648989074116267
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.001718281558809907
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.0006521533136058824
+postsmoothing sweep 0 on level 0
+L2 error:  1.6173329322078243
+Linf error:  1.4454634113188451
+Max val u:  2.3635504848935853
+L2 residual norm: 0.40409207057626606
+postsmoothing sweep 1 on level 0
+L2 error:  1.595012926233146
+Linf error:  1.4087339633028926
+Max val u:  2.3385167687690376
+L2 residual norm: 0.36222390111828534
+postsmoothing sweep 2 on level 0
+L2 error:  1.5731118176260368
+Linf error:  1.386210707173891
+Max val u:  2.322784360857875
+L2 residual norm: 0.3485477461092501
+
+residual iteration 1: 0.3485477461092501
+presmoothing sweep 0 on level  0
+L2 error:  1.5731118176260368
+Linf error:  1.386210707173891
+Max val u:  2.322784360857875
+L2 residual norm: 0.3485477461092501
+presmoothing sweep 1 on level 0
+L2 error:  1.5515255546493216
+Linf error:  1.3684211135513358
+Max val u:  2.307664639659571
+L2 residual norm: 0.3380284835653719
+presmoothing sweep 2 on level 0
+L2 error:  1.530285428494502
+Linf error:  1.3519355729676252
+Max val u:  2.292945092495272
+L2 residual norm: 0.32893798951176245
+presmoothing sweep 3 on level 0
+L2 error:  1.5093644089988798
+Linf error:  1.3356175743854994
+Max val u:  2.2783828286552663
+L2 residual norm: 0.3203265095707642
+presmoothing sweep 4 on level 0
+L2 error:  1.4887494271292752
+Linf error:  1.3193424329458925
+Max val u:  2.2638886239490086
+L2 residual norm: 0.31235794427613706
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 0.3085289830059366
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.28492531737823185
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.26277062420951547
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.24251340982635342
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.22319202417252482
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.21469635600005288
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.1664763206452351
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.12322248514826652
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.09073809144502988
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.06719429604836792
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.05976984227683061
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.020259820926170426
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 0.00666799009783375
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 0.001541242326282351
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 0.0003483640308038169
+    coarse grid sweep 0
+    L2 residual norm: 0.0002164547516467034
+    coarse grid sweep 0
+    L2 residual norm: 9.095254919581447e-10
+    coarse grid sweep 0
+    L2 residual norm: 2.368475785867001e-15
+    coarse solve converged 2 its. resid norm  3.552713678800501e-15
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 0.00027508544170627485
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 5.3627142080804526e-05
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 1.7416085122017176e-05
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 1.7416085122017176e-05
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 4.039611844553114e-06
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 9.121360495243478e-07
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 2.062232283502142e-07
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 4.6622836729048114e-08
+    coarse grid sweep 0
+    L2 residual norm: 2.8975946975151607e-08
+    coarse grid sweep 0
+    L2 residual norm: 4.736951571734002e-15
+    coarse solve converged 1 its. resid norm  7.105427357601002e-15
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 3.6818663419961273e-08
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 7.18024598996713e-09
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 2.3317745445446776e-09
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.061496137812296466
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.014222468103186897
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 0.0039037140604097132
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.0039037140604097132
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.00170430841268325
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.00092954831522385
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.0006553375364494196
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.0004582915637139141
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.0003661817003633313
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 7.916738185223444e-05
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 2.304701122305337e-05
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 5.333313115975464e-06
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 1.218203207648868e-06
+    coarse grid sweep 0
+    L2 residual norm: 7.597524340023182e-07
+    coarse grid sweep 0
+    L2 residual norm: 7.105427357601002e-15
+    coarse grid sweep 0
+    L2 residual norm: 7.105427357601002e-15
+    coarse solve converged 2 its. resid norm  1.0658141036401503e-14
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 9.680036833416482e-07
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 1.876162606245152e-07
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 6.115968934136771e-08
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.0004570223669600551
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 7.983124415110331e-05
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 2.0161162490488447e-05
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.177320010045003
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.06472944986916958
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.028954254683170876
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 0.028954254683170876
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.015576174286600707
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.010259668186989474
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.007513123478853323
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.005866743868986797
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.0183620798257474
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.0031753590287075394
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.002198454370347913
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.001612351909994299
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.0012072389046531506
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.000996416823382367
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.00029999345984646643
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 9.915791061674397e-05
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 2.670299133782521e-05
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 7.067939386437658e-06
+    coarse grid sweep 0
+    L2 residual norm: 4.847835609685566e-06
+    coarse grid sweep 0
+    L2 residual norm: 5.636972370363463e-13
+    coarse grid sweep 0
+    L2 residual norm: 4.736951571734002e-15
+    coarse solve converged 2 its. resid norm  7.105427357601002e-15
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 6.175147517164432e-06
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 1.20576093188084e-06
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 4.1084997137823065e-07
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.0013965259000058093
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.00022346259401900248
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 8.170665981762193e-05
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.01889327987652346
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.001970294522795245
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.0009743558878515578
+postsmoothing sweep 0 on level 0
+L2 error:  0.36957279205856386
+Linf error:  0.3594201587654011
+Max val u:  1.3301722170818335
+L2 residual norm: 0.15089312638069738
+postsmoothing sweep 1 on level 0
+L2 error:  0.3579669228784572
+Linf error:  0.3390281576235812
+Max val u:  1.33339744398188
+L2 residual norm: 0.1028725575310379
+postsmoothing sweep 2 on level 0
+L2 error:  0.34805426642075865
+Linf error:  0.33468731046813227
+Max val u:  1.3270966089935687
+L2 residual norm: 0.09135040686040181
+maxiters exceeded
+
+convergence summary
+-------------------
+residual 0: 1.7831547291079959    convergence factor 0: ---------------
+residual 1: 0.3485477461092501    convergence factor 1: 0.19546691064976027
+residual 2: 0.09135040686040181   convergence factor 2: 0.26208864604669857
+aggregate convergence factor: 0.22633969594202136
+residual reduction: 0.05122965795912668
+
+L2 error:  0.3474978680927566
+Linf error:  0.33468731046813227
+Max val u:  1.3270966089935685
+
+fmg solving level number 6 using multigrid solver
+Multigrid solver, number of unknowns 4225
+
+residual iteration 0: 0.03149959425650628
+presmoothing sweep 0 on level  0
+L2 error:  0.3474978680927566
+Linf error:  0.33468731046813227
+Max val u:  1.3270966089935685
+L2 residual norm: 0.03149959425650628
+presmoothing sweep 1 on level 0
+L2 error:  0.3452462469348989
+Linf error:  0.3297335836841616
+Max val u:  1.321819139084983
+L2 residual norm: 0.022603015965663633
+presmoothing sweep 2 on level 0
+L2 error:  0.3430016653392886
+Linf error:  0.32818103852725344
+Max val u:  1.3208050484493041
+L2 residual norm: 0.021448477431972687
+presmoothing sweep 3 on level 0
+L2 error:  0.34079025285608816
+Linf error:  0.3271594030570397
+Max val u:  1.3196060301857206
+L2 residual norm: 0.020916993459438378
+presmoothing sweep 4 on level 0
+L2 error:  0.3386103893723833
+Linf error:  0.32617121321574505
+Max val u:  1.3187777185714677
+L2 residual norm: 0.020502373243115702
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 0.02152523656426042
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.019177470868581233
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.018230991343608526
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.017451215912587106
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.016787381605443703
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.02282924127116489
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.01488588592544983
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.013533294234795193
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.012501837677659161
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.011649147906568751
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.01747547595595367
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.010297399843778948
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 0.00922205568390912
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 0.008268427162989377
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 0.007423325568677774
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 0.00748562909319411
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 0.005864458104562587
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 0.004016381399058048
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 0.002754349282017138
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 0.0018890623853663985
+     coarse grid sweep 0
+     L2 residual norm: 0.0021154422135178192
+     coarse grid sweep 0
+     L2 residual norm: 4.058350574117261e-07
+     coarse grid sweep 0
+     L2 residual norm: 1.4210854715202004e-14
+     coarse grid sweep 0
+     L2 residual norm: 0.0
+     coarse solve converged 3 its. resid norm  0.0
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 0.004379582707560546
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 0.0006934432736016751
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 0.00012228388147721316
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 0.00012228388147721316
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 8.709815189841653e-05
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 5.907111585173658e-05
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 4.057710176268609e-05
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 2.7863819459340673e-05
+     coarse grid sweep 0
+     L2 residual norm: 3.119413529262261e-05
+     coarse grid sweep 0
+     L2 residual norm: 8.841875380009395e-11
+     coarse grid sweep 0
+     L2 residual norm: 1.1842378929335004e-15
+     coarse solve converged 2 its. resid norm  1.7763568394002505e-15
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 6.470160318940189e-05
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 1.0209703833474652e-05
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 1.8153195048964783e-06
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 0.03417863496277085
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 0.012324922737087912
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 0.0040711013190044675
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.0040711013190044675
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.0025363338570559006
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 0.0021526819706782223
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 0.0018697201484479365
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 0.0016473722007235832
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 0.0016430692167662122
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 0.0012015930863247754
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 0.0008331606985206697
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 0.0005773565062373225
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 0.00039971894622696047
+     coarse grid sweep 0
+     L2 residual norm: 0.0004491794161391265
+     coarse grid sweep 0
+     L2 residual norm: 1.8605668117288587e-08
+     coarse grid sweep 0
+     L2 residual norm: 0.0
+     coarse solve converged 2 its. resid norm  0.0
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 0.000939433272761149
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 0.00015081459559412665
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 2.8491901635117007e-05
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 0.04653936808507737
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 0.002284630324113332
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 0.0008473101857290205
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.04884995876301064
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.02849390530586956
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 0.022306917474391504
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.022306917474391504
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.01919474278484612
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.01712302700334386
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.015524131680181918
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.014172006626028652
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.017020092858281592
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.012727592487590908
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 0.011622300185535566
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 0.010596033908342437
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 0.009650156459294488
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 0.009771851061909451
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 0.007839543001608329
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 0.00544863086011665
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 0.003798620249206406
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 0.002645843863921696
+     coarse grid sweep 0
+     L2 residual norm: 0.0029907314783604497
+     coarse grid sweep 0
+     L2 residual norm: 8.632158549441255e-07
+     coarse grid sweep 0
+     L2 residual norm: 7.342274936187702e-14
+     coarse grid sweep 0
+     L2 residual norm: 1.1842378929335004e-15
+     coarse solve converged 3 its. resid norm  1.7763568394002505e-15
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 0.006292617426491466
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 0.001014763227359417
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 0.0001965189933445833
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 0.04995200004465454
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 0.01516994763703925
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 0.005763621304822281
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.07955667602430362
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.042023015019524136
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 0.03719377009385644
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.11957025562652722
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.0592362686394872
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.04460987892261604
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 0.04460987892261604
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 0.03977777127952185
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 0.03767455996059799
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 0.03647469091155533
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 0.03563312568871181
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 0.0351684155737583
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 0.033582257431213694
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 0.03244597003993519
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 0.03132538571285086
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 0.0302792880720542
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 0.029478144940682842
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 0.026775060195499172
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 0.02376227158427589
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 0.021197779181687536
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 0.018976503439381443
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 0.018572338920030854
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 0.012266114938044496
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 0.00722063290685951
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 0.004210897401596126
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 0.002445984633848441
+     coarse grid sweep 0
+     L2 residual norm: 0.002658275532540463
+     coarse grid sweep 0
+     L2 residual norm: 4.866481688736712e-07
+     coarse grid sweep 0
+     L2 residual norm: 1.657933050106901e-14
+     coarse grid sweep 0
+     L2 residual norm: 2.368475785867001e-15
+     coarse solve converged 3 its. resid norm  3.552713678800501e-15
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 0.00467925291026232
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 0.0005791004424826144
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 0.00011715876090032592
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 0.06026786955418535
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 0.02008848851087044
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 0.007959511418199687
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 0.08719577866373143
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 0.04375544036183681
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 0.02830044696087612
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 0.0900846166918247
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 0.06745977635842612
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 0.05729312404317198
+postsmoothing sweep 0 on level 0
+L2 error:  0.5432029277090565
+Linf error:  1.0
+Max val u:  0.041005560754800996           <--- randomly almost zero?????? causes 							subsequent blowup. correction is just 							wrong
+L2 residual norm: 0.019334190579365064
+postsmoothing sweep 1 on level 0
+L2 error:  298022.5906713794
+Linf error:  889119.9263160325
+Max val u:  889120.9052326499
+L2 residual norm: 4.554594926151746e+19
+postsmoothing sweep 2 on level 0
+L2 error:  288370.12495178764
+Linf error:  801961.9727481097
+Max val u:  801962.9205085706
+L2 residual norm: 1.1812271920020054e+19
+
+residual iteration 1: 1.1812271920020054e+19
+presmoothing sweep 0 on level  0
+L2 error:  288370.12495178764
+Linf error:  801961.9727481097
+Max val u:  801962.9205085706
+L2 residual norm: 1.1812271920020054e+19
+presmoothing sweep 1 on level 0
+L2 error:  281339.69965183106
+Linf error:  727290.2451014688
+Max val u:  727291.1928619297
+L2 residual norm: 3.404814290987238e+18
+presmoothing sweep 2 on level 0
+L2 error:  275420.3629374051
+Linf error:  699934.0621857283
+Max val u:  699934.973796817
+L2 residual norm: 1.4201151393373084e+18
+presmoothing sweep 3 on level 0
+L2 error:  270727.3339932388
+Linf error:  668064.749440667
+Max val u:  668065.6610517557
+L2 residual norm: 6.340545545081581e+17
+presmoothing sweep 4 on level 0
+L2 error:  266728.7976002667
+Linf error:  621392.8107933669
+Max val u:  621393.6828414343
+L2 residual norm: 3.0973310164845037e+17
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 1.5840907032814883e+17
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 4.129681868498412e+16
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 2.358878944710927e+16
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 1.946548630087402e+16
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 1.7623307718322782e+16
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 1.1775812200433026e+16
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 9702647268527800.0
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 8298716599549504.0
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 7221750765483794.0
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 6417693981353835.0
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 3838750494541010.5
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 3061708574536635.5
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 2976827380590241.0
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 2939750116594682.0
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 2917772699329191.5
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 2805836270330586.5
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 1296271836049490.0
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 277291154038982.5
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 49361947203672.07
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 7930046594556.239
+     coarse grid sweep 0
+     L2 residual norm: 1001468708779.0001
+     coarse grid sweep 0
+     L2 residual norm: 154469201.6666667
+     coarse grid sweep 0
+     L2 residual norm: 2.666666666666667
+     coarse grid sweep 0
+     L2 residual norm: 0.33333333333333337
+     coarse solve converged 3 its. resid norm  0.5
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 8579856021805.11
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 154820598928.52502
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 22941426446.546024
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 22941426446.546024
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 2859501307.1478724
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 356234987.30480105
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 44376698.09344027
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 5528024.934010228
+     coarse grid sweep 0
+     L2 residual norm: 113959.33333333334
+     coarse grid sweep 0
+     L2 residual norm: 0.6666666666666667
+     coarse grid sweep 0
+     L2 residual norm: 1.0
+     coarse solve converged 2 its. resid norm  1.5
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 1765950829358956.0
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 797524.2451641232
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 106072.35640931949
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 1.812709896063564e+17
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 1.4072647907428043e+17
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 2.135549574380679e+16
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 2.135549574380679e+16
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 1.2237250314255986e+16
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 6919683009176652.0
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 4388518695069172.0
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 2867933369565223.0
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 6757481463094829.0
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 512634144418770.25
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 54428646029606.81
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 3780920196209.3296
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 182855862225.0055
+     coarse grid sweep 0
+     L2 residual norm: 145349062386.00003
+     coarse grid sweep 0
+     L2 residual norm: 2262571.3333333335
+     coarse grid sweep 0
+     L2 residual norm: 0.6666666666666667
+     coarse grid sweep 0
+     L2 residual norm: 0.6666666666666667
+     coarse solve converged 3 its. resid norm  1.0
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 639643958214.5574
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 64696993816.115585
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 4075897865.3247275
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 6.229630776743333e+16
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 2.4626448650056188e+16
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 6048817951874602.0
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 4.693572731092804e+16
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 1.652683228856603e+55
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 3.8098251843052465e+54
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 3.8098251843052465e+54
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 1.3818840649962472e+54
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 6.052936520557676e+53
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 2.8885965117736463e+53
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 1.4461874857402593e+53
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 2.330898823720607e+53
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 5.282885576103615e+52
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 6.959033331045022e+51
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 2.2338228560411805e+51
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 1.598664851911816e+51
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 3.3783418052745317e+50
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 1.3417132851387328e+50
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 5.026779990529557e+49
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 1.8927992550131903e+49
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 7.152637629647545e+48
+     coarse grid sweep 0
+     L2 residual norm: 3.165530653859537e+48
+     coarse grid sweep 0
+     L2 residual norm: 0.0
+     coarse grid sweep 0
+     L2 residual norm: 0.0
+     coarse solve converged 2 its. resid norm  0.0
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 2.35932112891992e+50
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 9.2570408105014e+49
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 3.5391789429570513e+49
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 2.867637454288187e+51
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 4.242599894732946e+50
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 2.1210754196617887e+50
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 1.2924967211360468e+52
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: 7.969101540958253e+70
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: 1.8798794157322416e+70
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: 5.865221270644896e+71
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: 2.6975865917497926e+71
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: 1.2453483822085262e+71
+ presmoothing sweep 0 on level  1
+ L2 residual norm: 1.2453483822085262e+71
+ presmoothing sweep 1 on level 1
+ L2 residual norm: 6.071881079405749e+70
+ presmoothing sweep 2 on level 1
+ L2 residual norm: 3.2462647379823997e+70
+ presmoothing sweep 3 on level 1
+ L2 residual norm: 1.90097512831271e+70
+ presmoothing sweep 4 on level 1
+ L2 residual norm: 1.1946508454000968e+70
+  presmoothing sweep 0 on level  2
+  L2 residual norm: 1.20602576645992e+70
+  presmoothing sweep 1 on level 2
+  L2 residual norm: 5.093951621596339e+69
+  presmoothing sweep 2 on level 2
+  L2 residual norm: 2.3381178276684878e+69
+  presmoothing sweep 3 on level 2
+  L2 residual norm: 1.4544591712962028e+69
+  presmoothing sweep 4 on level 2
+  L2 residual norm: 1.170551513796242e+69
+   presmoothing sweep 0 on level  3
+   L2 residual norm: 1.3972197955555078e+69
+   presmoothing sweep 1 on level 3
+   L2 residual norm: 1.061136813820356e+69
+   presmoothing sweep 2 on level 3
+   L2 residual norm: 9.622382021210715e+68
+   presmoothing sweep 3 on level 3
+   L2 residual norm: 9.063245027858514e+68
+   presmoothing sweep 4 on level 3
+   L2 residual norm: 8.68572021770099e+68
+    presmoothing sweep 0 on level  4
+    L2 residual norm: 4.415333275750894e+68
+    presmoothing sweep 1 on level 4
+    L2 residual norm: 2.4245724043714163e+68
+    presmoothing sweep 2 on level 4
+    L2 residual norm: 1.6513598739293415e+68
+    presmoothing sweep 3 on level 4
+    L2 residual norm: 4.5025049938193046e+67
+    presmoothing sweep 4 on level 4
+    L2 residual norm: 1.0037017819464356e+67
+     coarse grid sweep 0
+     L2 residual norm: 6.97159359976452e+66
+     coarse solve converged 0 its. resid norm  1.7175288156641663e+23
+    postsmoothing sweep 0 on level 4
+    L2 residual norm: 1.0037017819464356e+67
+    postsmoothing sweep 1 on level 4
+    L2 residual norm: 2.3018440859153442e+66
+    postsmoothing sweep 2 on level 4
+    L2 residual norm: 5.558065533175621e+65
+   postsmoothing sweep 0 on level 3
+   L2 residual norm: 2.53055969733011e+69
+   postsmoothing sweep 1 on level 3
+   L2 residual norm: 9.1330859741679e+68
+   postsmoothing sweep 2 on level 3
+   L2 residual norm: 6.2016197339271965e+68
+  postsmoothing sweep 0 on level 2
+  L2 residual norm: 6.468294088849248e+69
+  postsmoothing sweep 1 on level 2
+  L2 residual norm: inf
+  postsmoothing sweep 2 on level 2
+  L2 residual norm: inf
+ postsmoothing sweep 0 on level 1
+ L2 residual norm: inf
+ postsmoothing sweep 1 on level 1
+ L2 residual norm: inf
+ postsmoothing sweep 2 on level 1
+ L2 residual norm: inf
+postsmoothing sweep 0 on level 0
+L2 error:  1.9894206852263058e+58
+Linf error:  5.256330052390036e+58
+Max val u:  5.256330052390036e+58
+L2 residual norm: inf
+postsmoothing sweep 1 on level 0
+L2 error:  1.9504099634952846e+58
+Linf error:  5.062252220908348e+58
+Max val u:  5.062252220908348e+58
+L2 residual norm: inf
+postsmoothing sweep 2 on level 0
+L2 error:  1.9118181489303747e+58
+Linf error:  4.8632320164108055e+58
+Max val u:  4.8632320164108055e+58
+L2 residual norm: inf
+maxiters exceeded
+
+convergence summary
+-------------------
+residual 0: 0.03149959425650628   convergence factor 0: ---------------
+residual 1: 1.1812271920020054e+19convergence factor 1: 3.7499758961435555e+20
+residual 2: inf                   convergence factor 2: inf
+aggregate convergence factor: inf
+residual reduction: inf
+
+L2 error:  1.9118181489303825e+58
+Linf error:  4.8632320164108055e+58
+Max val u:  4.8632320164108055e+58
+
+fmg solving level number 7 using multigrid solver
+Multigrid solver, number of unknowns 16641
+/home/firedrake/shared/firedrakegmg/firedrakegmg.py:1599: RuntimeWarning: invalid value encountered in double_scalars
+  while self.residuals[-1] / self.residuals[0] > rtol and self.residuals[-1] > atol and z < maxiters:
+gmg coverged
+
+convergence summary
+-------------------
+residual 0: inf                   convergence factor 0: ---------------
+L2 error:  1.9118181489303836e+58
+Linf error:  4.863232016410805e+58
+Max val u:  4.863232016410805e+58

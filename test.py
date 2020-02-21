@@ -6,14 +6,14 @@ from time import time
 import matplotlib.pyplot as plt
 import sys, getopt
 import importlib
-
+parameters["reorder_meshes"] = False
 '''
 A test file for multgrid NCP solvers. Along with the arguments listed below, the user should pass the name of a .py file which contains a ufl expression defining the coarse mesh, along with UFL exprressions defining the boundary condition, obstacle, initial guess, and exact solution (if applicable). If no initial guess is passed then the solver defaults to using a zero initial guess which satisfies the boudary condition.
 
 The arguments have the following functions:
 
   --outputfolder
-  
+
   The path to an output folder where the results should be saved.
 
   --plotresiduals
@@ -23,11 +23,11 @@ The arguments have the following functions:
   --plotsolution3d
   --plotsolnseq
   --resheatmap
-  
+
 These tell the program what to output; in addition to the usual commandline output of residual norm on each iteration, we can plot the residual in a semilog plot, plot the obstacle, plot the solution, plot the residuals in a heat map/
 
   --numlevels n
-  
+
 Refine the coarse grid n - 1 times and use these levels in the multigrid. Right now we only allow uniform refinement by bisection, but the option of multiple refinements per level is available in Firedrake and could be added.
 
   --coarsemx m - 1 --coarsemy n - 1
@@ -39,7 +39,7 @@ m and n are the number of unknowns on the coarsest grid in the x and y direction
 Maximum number of iterations for the solver (on each level of the multigrid hierarchy in a full multigrid method)
 
   --cycle <'V', 'W', 'FV'>
-  
+
 Multigrid cycle type to use (on each level in full multigrid).
 
   --fmg --quad
@@ -88,7 +88,7 @@ def main(argv):
   plotexact3d = False
   ploterror = False
   ploterror3d = False
-  # add coarse grid statistics? would have to make some changes to the multigrid file
+  plotcdratio = False # add coarse grid statistics? would have to make some changes to the multigrid file
   numlevels = 6
   coarsemx = 2
   coarsemy = 2
@@ -109,10 +109,11 @@ def main(argv):
   probtype = "" #should be in obstacle, mse, plaplace (in which p should be specified, default is p=4), ice (in which q should be specified, default is q=5), bratu (in which lambda should be specified)
   smoother='pgs'
   constrain=False
-  
+  track=False
+
   try:
-   opts, args = getopt.getopt(argv,"hi:o:p:q:d:", ["ofolder=", "plotresiduals=", "plotobstacle="
-  "plotsolution=", "plotsolution3d=", "plotsolnseq=", "resheatmap=", "numlevels=", "coarsemx=", "coarsemy=", "maxiters=", "cycle=", "fmg=", "rtol=", "atol=", "mgtype=", "p=", "q=", "preiters=", "postiters=", "probtype=", "data=", "innerits=", "fmgc=", "eps=", "plotexact=", "plotexact3d=", "ploterror=", "ploterror3d=", "smoother=", "constrain="])
+   opts, args = getopt.getopt(argv,"hi:o:p:q:d:", ["ofolder=", "plotresiduals=", "plotobstacle=",
+  "plotsolution=", "plotsolution3d=", "plotsolnseq=", "resheatmap=", "numlevels=", "coarsemx=", "coarsemy=", "maxiters=", "cycle=", "fmg=", "rtol=", "atol=", "mgtype=", "p=", "q=", "preiters=", "postiters=", "probtype=", "data=", "innerits=", "fmgc=", "eps=", "plotexact=", "plotexact3d=", "ploterror=", "ploterror3d=", "smoother=", "constrain=", "plotcdratio="])
   except getopt.GetoptError:
     print('radial_example.py --show_active_set --show_residuals --verbose --num_grids <int> --coarse_mx <int> --coarse_my --mx <int> --my <int> <int> -o <outputfile> --maxiters <int> --ksp_type <cg> --pc_type <ilu, lu, amg, gmg> --cycle_type <V, F, W, fmg> --tol <float> --plot_solution --solver_type <rsp, pfas, pfas_rsp> --smoother <rsp, pgs>')
     sys.exit(2)
@@ -142,6 +143,8 @@ def main(argv):
       ploterror = True
     elif opt == "--ploterror3d":
       ploterror3d = True
+    elif opt == "--plotcdratio":
+      plotcdratio = True
     elif opt == "--fmg":
       fmg = True
     elif opt == "--constrain":
@@ -161,7 +164,7 @@ def main(argv):
     elif opt == "--preiters":
       preiters = int(arg)
     elif opt == "--postiters":
-      preiters = int(arg)
+      postiters = int(arg)
     elif opt == "--cycle":
       cycle = arg
     elif opt == "--rtol":
@@ -184,7 +187,7 @@ def main(argv):
       if arg.endswith(".py"):
         arg = arg[0:len(arg) - 3]
       data = importlib.import_module(arg, package=None)
-      psi, f, g, form, trans, cmesh, exact, init = data.psi, data.f, data.g, data.form, data.transform, data.cmesh, data.exact, data.init
+      psi, f, g, form, trans, cmesh, exact, init, Ja = data.psi, data.f, data.g, data.form, data.transform, data.cmesh, data.exact, data.init, data.jac
       #specify (in order) obstacle, righthand side (forcing function), boundary data, variational form, post-processing function to transform the solution (if any), a coarse mesh, and an exact solution
     else:
       print('option ' + opt + ' not recognized')
@@ -203,29 +206,35 @@ def main(argv):
     innits = maxiters + 1
   def build_levels(numlevels):
     levels = []
+    forms = []
     delt = eps
     mh = MeshHierarchy(cmesh, numlevels - 1)
     z = 0
-    
+
     for mesh in mh:
       V  = FunctionSpace(mesh, "CG", 1)
       x, y = SpatialCoordinate(mesh)
       w = Function(V)
       w.interpolate(g(x, y))
       bcs = DirichletBC(V, w, 'on_boundary')
-  
-      
+
+
       uf  = Function(V)
       uf.vector()[:] = np.arange(len(uf.vector()[:]))
-      
+
       u, v = TrialFunction(V), TestFunction(V)
       bndry = np.rint(assemble(Constant(0.0)*v*dx, bcs=DirichletBC(V, 1.0, 'on_boundary')).vector().array()).astype('bool')
       bvals = w.vector().array()[bndry]
       u = Function(V)
       if eps > 0.0 and delt > 0:
         a    = form(u, v) + delt*inner(grad(u), grad(v))*dx
+        if fmg:
+          def new_form(u, v):
+            form(u, v) + delt*inner(grad(u), grad(v))*dx
+          forms.append(new_form)
       else:
         a    = form(u, v)
+        forms.append(form)
       A    = None
       H = TrialFunction(V)
       b    = H*v*dx #+ k*inner(grad(u), grad(v))*dx
@@ -233,11 +242,16 @@ def main(argv):
       m    = H*v*dx
       M    = assemble(m)
       w = Function(V)
-      if z == len(mh) - 1:
-        lvl = licplevel(mesh, V, a, b, A, B, bcs, u, w=w, findices=None, M=M, bindices=bndry, bvals=bvals)
+      if Ja is not None:
+        jac = Ja(u, w, v) #bilinear form evaluated at u
       else:
-        lvl = licplevel(mesh, V, a, b, A, B, bcs, u, w=w, findices=None, M=M, bindices=bndry, bvals=bvals, smoother=smoother)
-      
+        jac = None
+
+      if z == len(mh) - 1:
+        lvl = licplevel(mesh, V, a, b, A, B, bcs, u, Ja=jac, w=w, findices=None, M=M, bindices=bndry, bvals=bvals, smoother='sympgs', track_errs=track)
+      else:
+        lvl = licplevel(mesh, V, a, b, A, B, bcs, u, Ja=jac, w=w, findices=None, M=M, bindices=bndry, bvals=bvals, smoother=smoother, track_errs=track)
+
       if z > 0:
         inject(uf, uc)
         levels[z - 1].findices = uc.vector()[:]
@@ -249,33 +263,33 @@ def main(argv):
       if z == len(mh) - 1:
         delt = 0
       else:
-        delt*=(1/5)
+        delt*=.1
     levels.reverse()
-    return levels
-  
+    forms.reverse()
+    return levels, forms
+
   tstart = time()
   print('building multigrid hierarchy...')
-  levels = build_levels(numlevels)
+  levels, forms = build_levels(numlevels)
   print('time to build hierarchy:', time() - tstart)
-  
+
   x, y = SpatialCoordinate(levels[0].mesh)
   if exact is not None:
     uexact = Function(levels[0].fspace)
     uexact.interpolate(exact(x, y))
 
-  
   w = Function(levels[0].fspace)
   w.interpolate(f(x, y))
 
   if fmg:
-      v = TestFunction(levels[-fmgj + 1].fspace)
-      xj, yj = SpatialCoordinate(levels[-fmgj + 1].mesh)
-      u = Function(levels[-fmgj + 1].fspace)
+      v = TestFunction(levels[-1].fspace)
+      xj, yj = SpatialCoordinate(levels[-1].mesh)
+      u = Function(levels[-1].fspace)
       u = assemble(init(xj, yj)*v*dx)
   else:
     u = Function(levels[0].fspace)
     u.interpolate(init(x, y))
-  
+
   g = Function(levels[0].fspace)
   g.interpolate(psi(x, y))
 
@@ -306,7 +320,7 @@ def main(argv):
       u = gmgsolver.fmgsolve(psi, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters, innerits=innits, j=fmgj, u0=u)
     else:
       gmgsolver.solve(u, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters, innerits=innits)
-      
+
   elif mgtype == 'ngs':
     gmgsolver = ngs_solver(levels, preiters, postiters)
     if fmg:
@@ -314,9 +328,9 @@ def main(argv):
     else:
       gmgsolver.solve(u, g, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters)
 
-    
+
   else:
-    gmgsolver = nlobstacle_pfas_solver(levels, preiters, postiters)
+    gmgsolver = nlobstacle_pfas_solver(levels, preiters, postiters, uexact=exact)
     if fmg:
       u = gmgsolver.fmgsolve(psi, cycle=cycle, rtol=rtol, atol=atol, maxiters=maxiters, j=fmgj, u0=u, constrain=constrain)
     else:
@@ -334,7 +348,7 @@ def main(argv):
   if fmg:
     n = 0
     z = 0
-    for lvl in range(fmgj, len(levels) + 1):
+    for lvl in range(1, len(levels) + 1):
       residuals = gmgsolver.residuals[n]
       with open(output + 'residuals' + str(lvl) + '.txt', 'w') as f:
         s = iter
@@ -396,22 +410,17 @@ def main(argv):
     print("plotting 3d exact solution..")
     plot(uexact, plot3d=True)
     plt.savefig(output + "exact3d.png") #add file name
-
-  plotcdratio = False
   if plotcdratio:
     print("plotting cd ratio..")
-    
-    def b(x, y): #this should change depending on the problem i'm working on
+    a = 750
+    def b1(x, y): #this should change depending on the problem i'm working on
       r = sqrt((x - L)**2 + (y - L)**2)
       return conditional(r > .1, -b0*cos(z0*pi*r/a), -b0)
     x, y = SpatialCoordinate(u)
     b = Function(levels[0].fspace)
-    b.interpolate(b(x, y))
+    b.interpolate(b1(x, y))
     plot((1 + inner(grad(u), grad(u)))/(1 + inner(grad(b), grad(b))))
     plt.savefig(output + "cdratio.png")
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
-
-
